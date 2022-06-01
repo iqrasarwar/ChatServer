@@ -4,6 +4,7 @@ const { chats } = require("./data/data");
 const connectDB = require("./config/db");
 const PORT = process.env.PORT || 5000;
 const userRoutes = require("./routes/userRoutes")
+const messageRoutes = require("./routes/messageRoutes");
 const generateToken = require("./config/generateToken")
 const app = express();
 dotenv.config();
@@ -24,3 +25,5 @@ app.get("/api/chats/:id", (req, res) => {
 });
 
 app.use("/api/user",userRoutes);
+
+app.use("/api/message", messageRoutes);
